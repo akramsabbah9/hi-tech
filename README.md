@@ -15,7 +15,7 @@ This application requires Node.js and MySQL installed on your machine in order t
 4. Create a file called ``` .env ```, then add the desired title of your database and your MySQL credentials to it.
 5. Create the database:
     - either use ``` npm run database ``` to construct the database automatically,
-    - or start mysql using ``` mysql -u root -p ``` and add the database manually.
+    - or start mysql using ``` mysql -u root -p ``` and add the database manually with ``` source schema.sql ```.
 
 An example .env file:
 ```
@@ -23,5 +23,6 @@ DB_NAME="hitech_db"
 DB_USER="root"
 DB_PW="YourPassword"
 ```
+
 
 ## Usage
