@@ -21,7 +21,12 @@ router.get("/:id", (req, res) => {
         where: { id: req.params.id },
         attributes: { exclude: ["password"] }
     })
-    .then(userData => res.json(userData))
+    .then(userData => {
+        if (!userData) {
+            return res.status(404).json({ message: "No user found with this id" });
+        }
+        res.json(userData);
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
