@@ -1,3 +1,4 @@
+/* models/Comment.js: sequelize module for comment table */
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
