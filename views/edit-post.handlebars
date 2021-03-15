@@ -1,0 +1,17 @@
+<section>
+    <h2>Edit Post</h2>
+
+    <form class="edit-post-form">
+        <div>
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" name="post-title" value="{{post.title}}" />
+        </div>
+        <div>
+            <label for="post-text">Content</label>
+            <textarea id="post-text" name="post-text">{{post.post_text}}</textarea>
+        </div>
+        <button type="submit" class="btn">Update Post</button>
+    </form>
+</section>
+
+<script src="/javascript/edit-post.js"></script>

@@ -31,13 +31,33 @@ router.get("/", (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
+    });
 });
 
 
 // dashboard/add: add a new post.
 router.get("/add", (req, res) => {
     res.render("add-post", { loggedIn: req.session.loggedIn });
+});
+
+
+// dashboard/edit: edit or delete an existing post.
+router.get("/edit/:id", (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id,
+            user_id: req.session.user_id
+        }
+    })
+    .then(postData => {
+        // make the post plaintext and render it in edit-post
+        const post = postData.get({ plain: true });
+        res.render("edit-post", { post, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;
