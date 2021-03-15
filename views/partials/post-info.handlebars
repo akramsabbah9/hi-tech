@@ -1,0 +1,14 @@
+<article class="post">
+        <div class="card-title">
+            <p>{{title}}</p>
+        </div>
+        <div class="meta">
+            Posted by {{user.username}} on {{createdAt}}
+        </div>
+        <div class="card-text">
+            <p>{{post_text}}</p>
+        </div>
+        <div class="footer">
+            <a href="/post/{{id}}">{{comments.length}} Comment(s)</a>
+        </div>
+</article>
