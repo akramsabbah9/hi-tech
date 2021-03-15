@@ -50,6 +50,13 @@ router.get("/edit/:id", (req, res) => {
         }
     })
     .then(postData => {
+        // if nothing was found, respond with 404
+        if (!postData) {
+            return res.status(404).json({
+                message: "No post by this user found with this id"
+            });
+        }
+        
         // make the post plaintext and render it in edit-post
         const post = postData.get({ plain: true });
         res.render("edit-post", { post, loggedIn: req.session.loggedIn });
