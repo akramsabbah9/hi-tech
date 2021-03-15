@@ -59,6 +59,35 @@ router.post("/", (req, res) => {
     });
 });
 
+// log in a user
+router.post("/login", (req, res) => {
+    // expects { username, password } in req.body
+    User.findOne({
+        where: { username: req.body.username }
+    })
+    .then(userData => {
+        if (!userData) {
+            res.status(400).json({ message: "Login failed! Wrong username or password." });
+            return;
+        }
+
+        // verify user
+        const validPassword = userData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: "Login failed! Wrong username or password." });
+            return;
+        }
+        
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+        
+            res.json({ user: userData, message: "You are now logged in!" });
+        });
+    });
+});
+
 
 // edit a user by id
 router.put("/:id", (req, res) => {
