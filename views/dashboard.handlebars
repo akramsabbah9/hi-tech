@@ -1,0 +1,20 @@
+<section>
+    <h2>Your Posts</h2>
+    {{#if posts.length}}
+    <ul>
+        {{#each posts as |post|}}
+        <li>
+            {{> post-brief post}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <h3>You don't have any posts yet. Add one below!</h3>
+    {{/if}}
+</section>
+<footer>
+    <a href="/dashboard/add">
+        <button id="new-post" class="btn-no-style">+ New Post</button>
+    </a>
+</footer>
