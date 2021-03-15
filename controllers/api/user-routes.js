@@ -59,6 +59,7 @@ router.post("/", (req, res) => {
     });
 });
 
+
 // log in a user
 router.post("/login", (req, res) => {
     // expects { username, password } in req.body
@@ -86,6 +87,19 @@ router.post("/login", (req, res) => {
             res.json({ user: userData, message: "You are now logged in!" });
         });
     });
+});
+
+
+// log out a user
+router.post("/logout", (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
 });
 
 
