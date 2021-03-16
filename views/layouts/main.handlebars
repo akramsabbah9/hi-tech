@@ -10,11 +10,11 @@
 
 <body>
     <header class="hero">
-        <nav>
-            <a href="/">Home</a>
+        <nav class="flex-row justify-flex-start">
+            <a href="/" class="">Home</a>
             {{#if loggedIn}}
             <a href="/dashboard">Dashboard</a>
-            <button id="logout" class="btn-no-style">Logout</button>
+            <a id="logout">Logout</a>
             {{else}}
             <a href="/login">Login</a>
             {{/if}}

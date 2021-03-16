@@ -48,6 +48,15 @@ a {
     text-decoration: none;
 }
 
+nav {
+    padding-bottom: 1.5%;
+    font-size: 1.3rem;
+}
+
+nav a {
+    padding-right: 1%;
+}
+
 .btn {
     font-size: 1.3rem;
     text-decoration:none;
@@ -99,7 +108,7 @@ a {
 }
 
 .hero {
-    padding: 3% 4%;
+    padding: 2% 4%;
     background-color: var(--dark);
     color: var(--primary);
 }
@@ -112,7 +121,7 @@ a {
     font-size: 3rem;
     background-color: var(--primary);
     color: var(--dark);
-    padding: 0 10px;
+    padding: 0 20px;
     display: inline-block;
     border-radius: var(--border-radius);
     box-shadow: 6px 5px var(--light-dark);
@@ -161,12 +170,12 @@ a {
 .card-header {
     color: var(--primary);
     background-color: var(--dark);
-    padding: 2.5%;
+    padding: 1.5%;
     border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
 }
 
 .card-body {
-    padding: 2.5%;
+    padding: 1.5%;
 }
 
 /* FORM */
@@ -203,7 +212,6 @@ a {
 .text-uppercase {
     text-transform: uppercase;
 }
-
 
 /* FLEX CONTENT */
 .flex-row {
