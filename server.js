@@ -13,8 +13,9 @@ const helpers = require("./utils/helpers");
 /* GLOBALS & MIDDLEWARE */
 const sess = {
     secret: "Change this later",
-    cookie: {},
+    cookie: { maxAge: 10 * 1000 },
     resave: false,
+    rolling: true,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
