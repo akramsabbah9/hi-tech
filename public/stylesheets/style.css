@@ -202,13 +202,18 @@ footer {
     margin: 0 0 3px 0;
 }
 
-.form-input {
+.form-input,
+.form-textarea {
     width: 100%;
     padding: 1% 1.5%;
     margin: 0 0 1.2% 0;
     font-size: 1.2rem;
     border: 2px solid var(--light-dark);
     border-radius: var(--border-radius);
+}
+
+.form-textarea {
+    min-height: 150px;
 }
 
 /* HEIGHT / WIDTH UTILS */
