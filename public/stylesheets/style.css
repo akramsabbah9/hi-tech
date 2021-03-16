@@ -70,7 +70,7 @@ footer {
     padding: 6px 5px;
     width: 100%;
     display: block;
-    margin: 5px 0;
+    margin: 12px 0;
     border-radius: var(--border-radius);
     color: var(--primary);
     border: none;
@@ -214,6 +214,7 @@ footer {
 
 .form-textarea {
     min-height: 150px;
+    font-family: "IBM Plex Sans", sans-serif;
 }
 
 /* HEIGHT / WIDTH UTILS */
