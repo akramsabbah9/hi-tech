@@ -48,11 +48,20 @@ router.get("/:id", (req, res) => {
 });
 
 
-// add a user
+// add (sign up) a user
 router.post("/", (req, res) => {
     // expects { username, email, password } in req.body
     User.create(req.body)
-    .then(userData => res.json(userData))
+    .then(userData => {
+        // set user to be logged in after successfully signing up
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+        
+            res.json(userData);
+        });
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -79,6 +88,7 @@ router.post("/login", (req, res) => {
             return;
         }
         
+        // set user to be logged in
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
