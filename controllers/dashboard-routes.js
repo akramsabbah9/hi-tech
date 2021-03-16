@@ -27,7 +27,7 @@ router.get("/", withAuth, (req, res) => {
         const posts = postData.map(post => post.get({ plain: true }));
 
         // render them on dashboard
-        res.render("dashboard", { posts, loggedIn: req.session.loggedIn });
+        res.render("dashboard", { posts, loggedIn: req.session.loggedIn, dashboard: true });
     })
     .catch(err => {
         console.log(err);
@@ -38,7 +38,7 @@ router.get("/", withAuth, (req, res) => {
 
 // dashboard/add: add a new post.
 router.get("/add", withAuth, (req, res) => {
-    res.render("add-post", { loggedIn: req.session.loggedIn });
+    res.render("add-post", { loggedIn: req.session.loggedIn, dashboard: true });
 });
 
 
@@ -60,7 +60,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
         
         // make the post plaintext and render it in edit-post
         const post = postData.get({ plain: true });
-        res.render("edit-post", { post, loggedIn: req.session.loggedIn });
+        res.render("edit-post", { post, loggedIn: req.session.loggedIn, dashboard: true });
     })
     .catch(err => {
         console.log(err);
