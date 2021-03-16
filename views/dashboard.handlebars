@@ -1,11 +1,12 @@
 <section>
     <h2>Your Posts</h2>
     {{#if posts.length}}
-    <ul>
+    <ul class="list-group">
         {{#each posts as |post|}}
         <li>
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">
             {{> post-brief post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+            </a>
         </li>
         {{/each}}
     </ul>
@@ -15,6 +16,6 @@
 </section>
 <footer>
     <a href="/dashboard/add">
-        <button id="new-post" class="btn-no-style">+ New Post</button>
+        <button id="new-post" class="btn-back">+ New Post</button>
     </a>
 </footer>

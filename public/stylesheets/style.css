@@ -57,6 +57,13 @@ nav a {
     padding-right: 5%;
 }
 
+footer {
+    border-top: 1px solid var(--secondary);
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+}
+
 .btn {
     font-size: 1.3rem;
     text-decoration:none;
@@ -89,13 +96,13 @@ nav a {
     color: var(--primary);
     border: none;
     outline: none;
-    background-color: var(--light-dark);
+    background-color: var(--dark);
     box-shadow: 3px 3px var(--secondary);
     transform: translate(-1px, -1px);
     display: inline-block;
     width: auto;
     margin-top: 20px;
-    padding: 15px;
+    padding: 10px 20px;
     text-decoration: none;
     font-size: 1.2rem;
 }
