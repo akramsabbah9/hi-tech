@@ -13,7 +13,7 @@ const helpers = require("./utils/helpers");
 /* GLOBALS & MIDDLEWARE */
 const sess = {
     secret: "Change this later",
-    cookie: { maxAge: 10 * 1000 },
+    cookie: { maxAge: 10 * 60 * 1000 }, // maxAge is 10 minutes
     resave: false,
     rolling: true,
     saveUninitialized: true,
