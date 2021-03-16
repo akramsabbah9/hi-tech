@@ -1,6 +1,7 @@
 /* controllers/api/comment-routes.js: REST routes to interact with Comments */
 const router = require("express").Router();
 const { Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all comments
 router.get("/", (req, res) => {
@@ -14,7 +15,7 @@ router.get("/", (req, res) => {
 
 
 // post a comment
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     // expects { comment_text, post_id, user_id } in req.body
     Comment.create({
         comment_text: req.body.comment_text,
@@ -30,7 +31,7 @@ router.post("/", (req, res) => {
 
 
 // edit a comment by id
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
     // expects { comment_text } in req.body
     Comment.update(
         {
@@ -56,7 +57,7 @@ router.put("/:id", (req, res) => {
 
 
 // delete a comment by id
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
     Comment.destroy({
         where: { id: req.params.id }
     })

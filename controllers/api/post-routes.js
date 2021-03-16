@@ -1,6 +1,7 @@
 /* controllers/api/post-routes.js: REST routes to interact with Posts */
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all posts
 router.get("/", (req, res) => {
@@ -59,7 +60,7 @@ router.get("/:id", (req, res) => {
 
 
 // add a post
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     // expects { title, post_text, user_id } in req.body
     Post.create({
         title: req.body.title,
@@ -75,7 +76,7 @@ router.post("/", (req, res) => {
 
 
 // edit a post by id
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
     // expects at least one of { title, post_text } in req.body
     Post.update(
         {
@@ -102,7 +103,7 @@ router.put("/:id", (req, res) => {
 
 
 // delete a post by id
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
     Post.destroy({
         where: { id: req.params.id }
     })

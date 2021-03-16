@@ -2,9 +2,10 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const {Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
 // dashboard/: get all posts of the logged-in user and display them 
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
     Post.findAll({
         where: { user_id: req.session.user_id },
         include: [
@@ -36,13 +37,13 @@ router.get("/", (req, res) => {
 
 
 // dashboard/add: add a new post.
-router.get("/add", (req, res) => {
+router.get("/add", withAuth, (req, res) => {
     res.render("add-post", { loggedIn: req.session.loggedIn });
 });
 
 
 // dashboard/edit: edit or delete an existing post.
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id,
