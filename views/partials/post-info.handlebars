@@ -1,0 +1,16 @@
+<article class="card">
+        <div>
+            <a href="/post/{{id}}">
+                <h3 class="card-header flex-row justify-space-between">
+                    <div>{{title}}</div>
+                    <span>Posted by {{user.username}} on {{format_date createdAt}}</span>
+                </h3>
+            </a>
+        </div>
+        <div class="card-body">
+            <p>{{post_text}}</p>
+        </div>
+        {{!-- <div class="footer">
+            <a href="/post/{{id}}">{{comments.length}} Comment(s)</a>
+        </div> --}}
+</article>
